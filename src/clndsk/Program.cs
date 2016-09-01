@@ -1,14 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace clndsk
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+namespace clndsk {
+
+    public class Program {
+
+        public static void Main(string[] args) {
+
+            try {
+                IoC.CreateContainer()
+                    .GetInstance<ICleaner>()
+                    .Clean();
+            } catch (Exception e) {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }
